@@ -4,15 +4,28 @@
 #include <string>
 #include <vector>
 
-struct Studentas {
-	std::string vardas;
-	std::string pavarde;
-	std::vector<int> nd_pazymiai;
-	int egz_pazymys{};
-	float galutinis;
-};
+class Studentas {
+	private:
+  	std::string vardas;
+  	std::string pavarde;
 
-Studentas irasyti_studenta();
+  	double egz_pazymys;
+  	std::vector<double> nd_pazymiai;
+		float galutinis;
+
+	public:
+		Studentas ();
+		Studentas (std::string line);
+		std::string isvesti_studenta ();
+
+		std::string vardas() { return vardas; };
+		std::string pavarde() { return vardas; };
+		float galutinis() { return galutinis; };
+
+		bool compareVardas(const Studentas&, const Studentas&);
+		bool comparePavarde(const Studentas&, const Studentas&);
+		bool compareEgza(const Studentas&, const Studentas&);
+};
 
 template <typename container>
 void nuskaityti_faila(const container &stud, std::string failas);
