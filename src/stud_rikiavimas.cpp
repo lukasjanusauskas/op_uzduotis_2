@@ -4,6 +4,10 @@
 #include "studentas.h"
 #include "skaiciavimai.h"
 
+bool compareVardas(const Studentas&, const Studentas&);
+bool comparePavarde(const Studentas&, const Studentas&);
+bool compareEgza(const Studentas&, const Studentas&);
+
 template <typename f>
 void rikiuoti_studentus(std::vector<Studentas>& stud, f func) {
 	std::sort(stud.begin(), stud.end(), func);

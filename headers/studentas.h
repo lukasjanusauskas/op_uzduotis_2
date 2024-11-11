@@ -15,12 +15,16 @@ class Studentas {
 
 	public:
 		Studentas ();
-		Studentas (std::string line);
-		std::string isvesti_studenta ();
+		Studentas (std::stringstream& buffer);
+		void isvesti_studenta (std::stringstream& buffer);
 
-		std::string vardas() { return vardas; };
-		std::string pavarde() { return vardas; };
-		float galutinis() { return galutinis; };
+		std::string get_vardas() { return vardas; };
+		std::string get_pavarde() { return pavarde; };
+		float get_galutinis() { return galutinis; };
+
+		void set_vardas(std::string vardas) { this->vardas = vardas; };
+		void set_pavarde(std::string pavarde) { this->pavarde = pavarde; };
+		void set_galutinis(float galutinis) { this->galutinis = galutinis; };
 
 		bool compareVardas(const Studentas&, const Studentas&);
 		bool comparePavarde(const Studentas&, const Studentas&);

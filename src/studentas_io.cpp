@@ -8,16 +8,14 @@
 #include "skaiciavimai.cpp"
 #include "timer.h"
 
-Studentas irasyti_studenta() {
+Studentas::Studentas() {
 	// Vieno studento irasymas
-	Studentas stud;
-
 	std::cout << "Įrašyti varda ir pavarde(ivedus vardą paspausti Enter):\n";
-	std::cin >> stud.vardas >> stud.pavarde;
+	std::cin >> vardas >> pavarde;
 
 	std::string ivestis;
 	int paz;
-
+	
 	std::cout << "Įvesti pažymius(norėdami užbaigti, įveskite 0):\n";
 	while (true) {
 		std::cin >> ivestis;
@@ -34,7 +32,7 @@ Studentas irasyti_studenta() {
 		if (paz == 0) // Irasoma, kol nepaspaudzia 0
 			break;
 
-		stud.nd_pazymiai.push_back(paz);
+		nd_pazymiai.push_back(paz);
 	}
 
 	std::cout << "Įveskite egzamino pažymį:\n";
@@ -55,6 +53,25 @@ ivesti:;
 	return stud;
 }
 
+void Studentas::isvesti_studenta (std::stringstream& buffer){
+		buffer << std::setw(20) << vardas
+			   << std::setw(25) << pavarde;
+		buffer << std::left
+			   << std::setw(17) << galutinis << "\n";
+}
+
+Studentas::Studentas (std::stringstream& buffer){
+	buffer >> vardas >> pavarde;
+
+	for (int i = 0; i < nd_skaicius; i++) {
+		buffer >> tmp_paz;
+		nd_pazymiai.push_back(tmp_paz);
+	}
+	buffer >> egz_pazymys;
+
+	galutinis = galutinis(vidurkis(s.nd_pazymiai), s.egz_pazymys);
+}
+
 template <typename container>
 void irasyti_studentus(container &sarasas) {
 	// Visu studentu irasimas komandineje eiluteje
@@ -68,7 +85,7 @@ void irasyti_studentus(container &sarasas) {
 		{
 		// Jei nuspaudzia 't', ivyksta irsaymas
 		case 't':
-			sarasas.push_back(irasyti_studenta());
+			sarasas.push_back(new Studentas());
 			break;
 		// Jei nuspaudzia 'n', grazinama, nevyksta irasymas
 		case 'n':
@@ -98,9 +115,6 @@ void nuskaityti_faila(container &stud, std::string failas) {
 	int nd_skaicius = 0;
 
 	// Nuskaitomas namu darbu kiekis su regex
-	// Daroma prielaida, kad namu darbu stulpeliai zymimi ND(skaicius)
-
-	// Sudarome regex expression ir jį paleidžiame per header_str.
 	const std::regex reg_expr("ND\\d+");
 
 	auto iterator = std::sregex_iterator(header_str.begin(), header_str.end(), reg_expr);
@@ -117,16 +131,7 @@ void nuskaityti_faila(container &stud, std::string failas) {
 	int tmp_paz;
 	std::string line_buf;
 	while (!buffer.eof()) {
-		Studentas s;
-		buffer >> s.vardas >> s.pavarde;
-
-		for (int i = 0; i < nd_skaicius; i++) {
-			buffer >> tmp_paz;
-			s.nd_pazymiai.push_back(tmp_paz);
-		}
-		buffer >> s.egz_pazymys;
-
-		s.galutinis = galutinis(vidurkis(s.nd_pazymiai), s.egz_pazymys);
+		Studentas s = new Studentas(buffer);
 		stud.push_back(s);
 	}
 }
@@ -145,15 +150,7 @@ void isvesti_faila(const container &stud, std::string file_path) {
 
 	t.start_timer();
 	for (auto& s : stud){
-		
-		float vid = vidurkis(s.nd_pazymiai);
-		float med = mediana(s.nd_pazymiai);
-
-	// Spausdinama, nustatant plocio minimuma(kuris retai virsijamas, tai beveik visada toks ir yra)
-		buffer << std::setw(20) << s.vardas
-			   << std::setw(25) << s.pavarde;
-		buffer << std::left
-			   << std::setw(17) << s.galutinis << "\n";
+		s.isvesti_studenta(buffer);
 	}
 
 	std::ofstream fr(file_path);
