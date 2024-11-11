@@ -4,9 +4,17 @@
 #include "studentas.h"
 #include "skaiciavimai.h"
 
-bool compareVardas(const Studentas&, const Studentas&);
-bool comparePavarde(const Studentas&, const Studentas&);
-bool compareEgza(const Studentas&, const Studentas&);
+bool Studentas::compareVardas(const Studentas& s1, const Studentas& s2){
+	return s1.vardas.compare(s2.vardas);
+}
+
+bool Studentas::comparePavarde(const Studentas& s1, const Studentas& s2){
+	return s1.pavarde.compare(s2.pavarde);
+}
+
+bool Studentas::compareEgza(const Studentas& s1, const Studentas& s2){
+	return s1.galutinis > s2.galutinis;
+}
 
 template <typename f>
 void rikiuoti_studentus(std::vector<Studentas>& stud, f func) {
@@ -22,7 +30,7 @@ template <typename container>
 void kategorizuoti(container &stud, container  &vargsai, container &galvos) {
 	// Partition
 	auto it = std::partition(stud.begin(), stud.end(),
-													 [](Studentas &s) { return s.galutinis < 5; });
+													 [](Studentas &s) { return s.get_galutinis() < 5; });
 
 	// Copy 
 	vargsai.insert (vargsai.begin(), stud.begin(), it);

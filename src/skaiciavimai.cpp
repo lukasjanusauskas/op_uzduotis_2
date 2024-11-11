@@ -28,6 +28,6 @@ float mediana(std::vector<int> pazymiai) {
 		return (pazymiai.at(ilgis / 2) + pazymiai.at(ilgis / 2 - 1)) / 2.0;
 }
 
-float galutinis(float paz_agg, int egz_paz) {
+float calc_galutini(float paz_agg, int egz_paz) {
 	return 0.4 * paz_agg + 0.6 * egz_paz;
 }

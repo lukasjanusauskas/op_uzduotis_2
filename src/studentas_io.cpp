@@ -2,6 +2,7 @@
 #include <fstream>
 #include <regex>
 #include <iomanip>
+#include <ios>
 #include <list>
 
 #include "studentas.h"
@@ -42,25 +43,25 @@ ivesti:;
 
 	try
 	{
-		stud.egz_pazymys = std::stoi(ivestis);
+		egz_pazymys = std::stoi(ivestis);
 	}
 	catch (const std::exception&)
 	{
 		std::cout << "Prasau, iveskite normalu skaiciu, jei norite baigti, iveskite 0\n";
 		goto ivesti;
 	}
-
-	return stud;
 }
 
-void Studentas::isvesti_studenta (std::stringstream& buffer){
-		buffer << std::setw(20) << vardas
-			   << std::setw(25) << pavarde;
+void isvesti_studenta (Studentas s, std::stringstream& buffer){
+		buffer << std::setw(20) << s.get_vardas()
+			   << std::setw(25) << s.get_pavarde();
 		buffer << std::left
-			   << std::setw(17) << galutinis << "\n";
+			   << std::setw(17) << s.get_galutinis() << "\n";
 }
 
-Studentas::Studentas (std::stringstream& buffer){
+Studentas::Studentas (std::stringstream& buffer, int nd_skaicius){
+	int tmp_paz;
+
 	buffer >> vardas >> pavarde;
 
 	for (int i = 0; i < nd_skaicius; i++) {
@@ -69,7 +70,7 @@ Studentas::Studentas (std::stringstream& buffer){
 	}
 	buffer >> egz_pazymys;
 
-	galutinis = galutinis(vidurkis(s.nd_pazymiai), s.egz_pazymys);
+	galutinis = calc_galutini(vidurkis(nd_pazymiai), egz_pazymys);
 }
 
 template <typename container>
@@ -85,7 +86,10 @@ void irasyti_studentus(container &sarasas) {
 		{
 		// Jei nuspaudzia 't', ivyksta irsaymas
 		case 't':
-			sarasas.push_back(new Studentas());
+		{
+			Studentas* st = new Studentas();
+			sarasas.push_back(*st);
+		}
 			break;
 		// Jei nuspaudzia 'n', grazinama, nevyksta irasymas
 		case 'n':
@@ -131,8 +135,8 @@ void nuskaityti_faila(container &stud, std::string failas) {
 	int tmp_paz;
 	std::string line_buf;
 	while (!buffer.eof()) {
-		Studentas s = new Studentas(buffer);
-		stud.push_back(s);
+		Studentas *s = new Studentas(buffer, nd_skaicius);
+		stud.push_back(*s);
 	}
 }
 
@@ -150,7 +154,7 @@ void isvesti_faila(const container &stud, std::string file_path) {
 
 	t.start_timer();
 	for (auto& s : stud){
-		s.isvesti_studenta(buffer);
+		isvesti_studenta(s, buffer);
 	}
 
 	std::ofstream fr(file_path);
