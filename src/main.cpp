@@ -23,6 +23,7 @@ void testuoti_generavima();
 
 int main() {
 	// generuoti_penkis();
+
 	std::list<Studentas> stud;
 	konsoles_dialogas(stud);
 
@@ -41,7 +42,9 @@ void testas(std::string file_path, container& stud){
 
 	Timer t;
 	// Ivedimas
+	t.start_timer();
 	nuskaityti_faila(stud, file_path);
+	std::cout << "Nuskaitymas failo " << file_path << " užtruko " << t.get_time() << " s\n";
 
 	// Rikiavimas
 	pasirinkti_rikiavima(stud, file_path);
@@ -52,8 +55,12 @@ void testas(std::string file_path, container& stud){
 	std::cout << "Skirstymas " << file_path << " užtruko " << t.get_time() << " s\n";
 
 	// Isvedimas
+	t.restart_timer();
 	isvesti_faila(vargsai, "vargsai.txt");
 	isvesti_faila(galvos, "galvos.txt");
+	std::cout << "Išvedimas " << file_path << " užtruko " << t.get_time() << " s\n";
+
+	std::cout << std::endl;
 }
 
 template <typename container>
@@ -61,7 +68,7 @@ void konsoles_dialogas(container& stud){
 	char input;
 
 input_option:
-	std::string path = "studentai1000000.txt";
+	std::string path = "studentai10000000.txt";
 
 	std::cout << "Kaip įvesti studentus? Terminale - (t), Faile - (f)\n";
 	std::cin >> input;
