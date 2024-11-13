@@ -16,6 +16,7 @@ class Studentas {
 	public:
 		Studentas ();
 		Studentas (std::stringstream& buffer, int nd_skaicius);
+		~Studentas();
 
 		std::string get_vardas() { return vardas; };
 		std::string get_pavarde() { return pavarde; };
