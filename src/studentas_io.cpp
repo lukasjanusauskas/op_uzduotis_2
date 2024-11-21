@@ -73,6 +73,10 @@ Studentas::Studentas (std::stringstream& buffer, int nd_skaicius){
 	galutinis = calc_galutini(vidurkis(nd_pazymiai), egz_pazymys);
 }
 
+Studentas::~Studentas() {
+	nd_pazymiai.clear();
+}
+
 template <typename container>
 void irasyti_studentus(container &sarasas) {
 	// Visu studentu irasimas komandineje eiluteje
