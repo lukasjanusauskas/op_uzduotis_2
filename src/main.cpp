@@ -64,6 +64,8 @@ void testas(std::string file_path, container& stud){
 	std::cout << "Išvedimas " << file_path << " užtruko " << t.get_time() << " s\n";
 
 	std::cout << std::endl;
+
+	stud.clear(); galvos.clear(); vargsai.clear();
 }
 
 std::string pasirinkti_faila() {
@@ -161,7 +163,7 @@ void pasirinkti_rikiavima(container& stud, std::string file_path){
 	 	goto sort_option;
 	}
 
-	std::cout << "Rikiavimas studentų iš failo " << file_path << " užtruko " << elapsed.count() << "s\n";
+	std::cout << "Rikiavimas studentų iš failo " << file_path << " užtruko " << elapsed.count() << " s\n";
 }
 
 void test_pasirinkti(){
