@@ -13,4 +13,13 @@ Sukompiliavimus executable `main` bus direktorijoje `build` todėl Unix sistemos
 - Padaryti matavimai su įvairiais compiler flagais.
 
 ### Matavimo rezultatai
+
+Failo dydžiai:
+
+| Optimizavimo lygis | Failo dydis (baitais) |
+| ------------------ | --------------------- |
+| O1 | 200904 |
+| O2 | 203160 |
+| O3 | 210784 |
+
 ![Matavimo rezultatai](./screenshots/klases.png)
