@@ -76,6 +76,28 @@ Studentas::Studentas (std::stringstream& buffer, int nd_skaicius){
 Studentas::~Studentas() {
 	nd_pazymiai.clear();
 }
+		
+Studentas::Studentas(const Studentas& s){
+	vardas = s.vardas;
+	pavarde = s.pavarde;
+
+	egz_pazymys = s.egz_pazymys;
+	galutinis = s.galutinis;
+
+	copy(s.nd_pazymiai.begin(), s.nd_pazymiai.end(), std::back_inserter(nd_pazymiai));
+}
+
+Studentas& Studentas::operator=(const Studentas& s){
+	this->vardas = s.vardas;
+	this->pavarde = s.pavarde;
+
+	this->egz_pazymys = s.egz_pazymys;
+	this->galutinis = s.galutinis;
+
+	copy(s.nd_pazymiai.begin(), s.nd_pazymiai.end(), std::back_inserter(this->nd_pazymiai));
+
+	return *this;
+}
 
 template <typename container>
 void irasyti_studentus(container &sarasas) {
