@@ -1,14 +1,13 @@
 #ifndef STUDENTAS_H
 #define STUDENTAS_H
 
+#include "zmogus.h"
+
 #include <string>
 #include <vector>
 
-class Studentas {
+class Studentas : public Zmogus {
 	private:
-  	std::string vardas;
-  	std::string pavarde;
-
   	double egz_pazymys;
   	std::vector<int> nd_pazymiai;
 		float galutinis;
@@ -24,14 +23,10 @@ class Studentas {
 		Studentas(const Studentas& s);
 		Studentas& operator=(const Studentas& s);
 
-		std::string get_vardas() { return vardas; };
-		std::string get_pavarde() { return pavarde; };
 		float get_galutinis() { return galutinis; };
 		float get_egz() { return egz_pazymys; };
 		std::vector<int> get_nd_pazymiai() { return nd_pazymiai; };
 
-		void set_vardas(std::string vardas) { this->vardas = vardas; };
-		void set_pavarde(std::string pavarde) { this->pavarde = pavarde; };
 		void set_galutinis(float galutinis) { this->galutinis = galutinis; };
 
 		static bool compareVardas(const Studentas&, const Studentas&);
