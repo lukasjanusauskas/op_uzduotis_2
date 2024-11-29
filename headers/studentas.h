@@ -14,7 +14,10 @@ class Studentas {
 		float galutinis;
 
 	public:
+		int n_pazymiu;
+
 		Studentas ();
+		Studentas (int n_paz) : n_pazymiu(n_paz) {};
 		Studentas (std::stringstream& buffer, int nd_skaicius);
 
 		~Studentas();
@@ -34,9 +37,9 @@ class Studentas {
 		static bool compareVardas(const Studentas&, const Studentas&);
 		static bool comparePavarde(const Studentas&, const Studentas&);
 		static bool compareEgza(const Studentas&, const Studentas&);
-
-		Studentas& operator>>(std::stringstream& s);
-		void operator<<(std::stringstream& s);
+		
+		friend std::stringstream& operator<<(std::stringstream& s, const Studentas& stud);
+		friend std::stringstream& operator>>(std::stringstream& s, Studentas& stud);
 };
 
 void isvesti_studenta (Studentas s, std::stringstream& buffer);

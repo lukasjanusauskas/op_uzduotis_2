@@ -52,11 +52,13 @@ ivesti:;
 	}
 }
 
-void isvesti_studenta (Studentas s, std::stringstream& buffer){
-		buffer << std::setw(20) << s.get_vardas()
-			   << std::setw(25) << s.get_pavarde();
-		buffer << std::left
-			   << std::setw(17) << s.get_galutinis() << "\n";
+std::stringstream& operator<<(std::stringstream& s, const Studentas& stud){
+		s << std::setw(20) << stud.vardas
+			<< std::setw(25) << stud.pavarde;
+		s << std::left
+			<< std::setw(17) << stud.galutinis << "\n";
+
+		return s;
 }
 
 Studentas::Studentas (std::stringstream& buffer, int nd_skaicius){
@@ -71,6 +73,12 @@ Studentas::Studentas (std::stringstream& buffer, int nd_skaicius){
 	buffer >> egz_pazymys;
 
 	galutinis = calc_galutini(vidurkis(nd_pazymiai), egz_pazymys);
+}
+
+std::stringstream& operator>>(std::stringstream& s, Studentas& stud){
+	Studentas* new_stud = new Studentas(s, stud.n_pazymiu);
+	stud = *new_stud;
+	return s;
 }
 
 Studentas::~Studentas() {
@@ -161,7 +169,8 @@ void nuskaityti_faila(container &stud, std::string failas) {
 	int tmp_paz;
 	std::string line_buf;
 	while (!buffer.eof()) {
-		Studentas *s = new Studentas(buffer, nd_skaicius);
+		Studentas *s = new Studentas(nd_skaicius);
+		buffer << s;
 		stud.push_back(*s);
 	}
 }
@@ -180,7 +189,7 @@ void isvesti_faila(const container &stud, std::string file_path) {
 
 	t.start_timer();
 	for (auto& s : stud){
-		isvesti_studenta(s, buffer);
+		buffer << s;
 	}
 
 	std::ofstream fr(file_path);
