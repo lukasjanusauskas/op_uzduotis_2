@@ -170,8 +170,11 @@ void nuskaityti_faila(container &stud, std::string failas) {
 	std::string line_buf;
 	while (!buffer.eof()) {
 		Studentas *s = new Studentas(nd_skaicius);
-		buffer << s;
+		buffer >> *s;
+
 		stud.push_back(*s);
+
+		std::cout << "Nuskaitytas " << s->get_vardas() << std::endl;
 	}
 }
 
