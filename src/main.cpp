@@ -23,6 +23,7 @@ void konsoles_dialogas(container& stud);
 void testuoti_eiga();
 void testuoti_generavima();
 void test_pasirinkti();
+void demonstracija();
 
 int main() {
 	// generuoti_penkis();
@@ -91,6 +92,15 @@ std::string pasirinkti_faila() {
 	std::string size_str = std::to_string((int)(1000 * pow(10, choice - 1)));
 	return "studentai" + size_str + ".txt";
 }
+
+// void demonstracija() {
+// 	try{
+// 		Zmogus zmogus;
+
+// 	} catch (std::exception& e) {
+// 		std::cout << "C++ neleidžia";
+// 	}
+// }
 
 template <typename container>
 void konsoles_dialogas(container& stud){

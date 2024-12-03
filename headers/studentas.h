@@ -23,8 +23,12 @@ class Studentas : public Zmogus {
 		Studentas(const Studentas& s);
 		Studentas& operator=(const Studentas& s);
 
+		std::string get_vardas() { return vardas; };
+		std::string get_pavarde() { return pavarde; }
+
 		float get_galutinis() { return galutinis; };
 		float get_egz() { return egz_pazymys; };
+
 		std::vector<int> get_nd_pazymiai() { return nd_pazymiai; };
 
 		void set_galutinis(float galutinis) { this->galutinis = galutinis; };
