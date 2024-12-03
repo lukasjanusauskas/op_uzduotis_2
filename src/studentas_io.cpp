@@ -173,8 +173,6 @@ void nuskaityti_faila(container &stud, std::string failas) {
 		buffer >> *s;
 
 		stud.push_back(*s);
-
-		std::cout << "Nuskaitytas " << s->get_vardas() << std::endl;
 	}
 }
 
