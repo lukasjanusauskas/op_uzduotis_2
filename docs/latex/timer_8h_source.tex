@@ -1,0 +1,22 @@
+\hypertarget{timer_8h_source}{}\doxysection{timer.\+h}
+\label{timer_8h_source}\index{/home/lukas/prog/op\_uzduotis\_2/headers/timer.h@{/home/lukas/prog/op\_uzduotis\_2/headers/timer.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef TIMER\_H}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define TIMER\_H}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <chrono>}}
+\DoxyCodeLine{5 }
+\DoxyCodeLine{6 \textcolor{keyword}{class }\mbox{\hyperlink{classTimer}{Timer}}\{}
+\DoxyCodeLine{7     std::chrono::time\_point<std::chrono::system\_clock> start, end;}
+\DoxyCodeLine{8     std::chrono::duration<double> elapsed;}
+\DoxyCodeLine{9 }
+\DoxyCodeLine{10 \textcolor{keyword}{public}:}
+\DoxyCodeLine{11     \textcolor{keywordtype}{void} start\_timer();}
+\DoxyCodeLine{12     \textcolor{keywordtype}{double} get\_time();}
+\DoxyCodeLine{13     \textcolor{keywordtype}{void} restart\_timer();}
+\DoxyCodeLine{14 \};}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

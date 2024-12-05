@@ -1,0 +1,99 @@
+\hypertarget{classStudentas}{}\doxysection{Studentas Class Reference}
+\label{classStudentas}\index{Studentas@{Studentas}}
+
+
+Inheritance diagram for Studentas\+:
+% FIG 0
+
+
+Collaboration diagram for Studentas\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classStudentas_a0259358b294703ff5ef17e603c8c33af}\label{classStudentas_a0259358b294703ff5ef17e603c8c33af}} 
+{\bfseries Studentas} (int n\+\_\+paz)
+\item 
+\mbox{\Hypertarget{classStudentas_a24f9dd984868da2cb9d0d5fb9b91584e}\label{classStudentas_a24f9dd984868da2cb9d0d5fb9b91584e}} 
+{\bfseries Studentas} (std\+::stringstream \&buffer, int nd\+\_\+skaicius)
+\item 
+\mbox{\Hypertarget{classStudentas_a919251ec5bbb012f622a9bedfd804a21}\label{classStudentas_a919251ec5bbb012f622a9bedfd804a21}} 
+{\bfseries Studentas} (const \mbox{\hyperlink{classStudentas}{Studentas}} \&s)
+\item 
+\mbox{\Hypertarget{classStudentas_aa58bf289c42552bffd4901ddad4c5f1c}\label{classStudentas_aa58bf289c42552bffd4901ddad4c5f1c}} 
+\mbox{\hyperlink{classStudentas}{Studentas}} \& {\bfseries operator=} (const \mbox{\hyperlink{classStudentas}{Studentas}} \&s)
+\item 
+std\+::string \mbox{\hyperlink{classStudentas_a1591d3b89b1f83ae9507e53862159aa3}{get\+\_\+vardas}} ()
+\item 
+std\+::string \mbox{\hyperlink{classStudentas_adb918eed197639b59270fea7d3d5c276}{get\+\_\+pavarde}} ()
+\item 
+\mbox{\Hypertarget{classStudentas_ad972be56c51b724387d151b92e02b710}\label{classStudentas_ad972be56c51b724387d151b92e02b710}} 
+float {\bfseries get\+\_\+galutinis} ()
+\item 
+\mbox{\Hypertarget{classStudentas_abcd3953e35040176ea2ceaa73b3f61ed}\label{classStudentas_abcd3953e35040176ea2ceaa73b3f61ed}} 
+float {\bfseries get\+\_\+egz} ()
+\item 
+\mbox{\Hypertarget{classStudentas_a36d032d2286c6e45197a7c84d12fd36f}\label{classStudentas_a36d032d2286c6e45197a7c84d12fd36f}} 
+std\+::vector$<$ int $>$ {\bfseries get\+\_\+nd\+\_\+pazymiai} ()
+\item 
+\mbox{\Hypertarget{classStudentas_a00f0e954a0e276602b7c847cc9933ac8}\label{classStudentas_a00f0e954a0e276602b7c847cc9933ac8}} 
+void {\bfseries set\+\_\+galutinis} (float galutinis)
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classStudentas_af0fb73bf400316ebcff39ece9e73f5df}\label{classStudentas_af0fb73bf400316ebcff39ece9e73f5df}} 
+static bool {\bfseries compare\+Vardas} (const \mbox{\hyperlink{classStudentas}{Studentas}} \&, const \mbox{\hyperlink{classStudentas}{Studentas}} \&)
+\item 
+\mbox{\Hypertarget{classStudentas_a4016a38268ce0dfb93b626df9d18bf88}\label{classStudentas_a4016a38268ce0dfb93b626df9d18bf88}} 
+static bool {\bfseries compare\+Pavarde} (const \mbox{\hyperlink{classStudentas}{Studentas}} \&, const \mbox{\hyperlink{classStudentas}{Studentas}} \&)
+\item 
+\mbox{\Hypertarget{classStudentas_aeb704cb8178d8eb3633e7e645f9b48c1}\label{classStudentas_aeb704cb8178d8eb3633e7e645f9b48c1}} 
+static bool {\bfseries compare\+Egza} (const \mbox{\hyperlink{classStudentas}{Studentas}} \&, const \mbox{\hyperlink{classStudentas}{Studentas}} \&)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classStudentas_af3cab57a0bf1f5d2aa21b4d71cc7558a}\label{classStudentas_af3cab57a0bf1f5d2aa21b4d71cc7558a}} 
+int {\bfseries n\+\_\+pazymiu}
+\end{DoxyCompactItemize}
+\doxysubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classStudentas_adc4e0e66499216c3bfb1667ecfbb342f}\label{classStudentas_adc4e0e66499216c3bfb1667ecfbb342f}} 
+std\+::stringstream \& {\bfseries operator$<$$<$} (std\+::stringstream \&s, const \mbox{\hyperlink{classStudentas}{Studentas}} \&stud)
+\item 
+\mbox{\Hypertarget{classStudentas_a0f9c838edc4de87c11254432fc799ad8}\label{classStudentas_a0f9c838edc4de87c11254432fc799ad8}} 
+std\+::stringstream \& {\bfseries operator$>$$>$} (std\+::stringstream \&s, \mbox{\hyperlink{classStudentas}{Studentas}} \&stud)
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classStudentas_adb918eed197639b59270fea7d3d5c276}\label{classStudentas_adb918eed197639b59270fea7d3d5c276}} 
+\index{Studentas@{Studentas}!get\_pavarde@{get\_pavarde}}
+\index{get\_pavarde@{get\_pavarde}!Studentas@{Studentas}}
+\doxysubsubsection{\texorpdfstring{get\_pavarde()}{get\_pavarde()}}
+{\footnotesize\ttfamily std\+::string Studentas\+::get\+\_\+pavarde (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classZmogus}{Zmogus}}.
+
+\mbox{\Hypertarget{classStudentas_a1591d3b89b1f83ae9507e53862159aa3}\label{classStudentas_a1591d3b89b1f83ae9507e53862159aa3}} 
+\index{Studentas@{Studentas}!get\_vardas@{get\_vardas}}
+\index{get\_vardas@{get\_vardas}!Studentas@{Studentas}}
+\doxysubsubsection{\texorpdfstring{get\_vardas()}{get\_vardas()}}
+{\footnotesize\ttfamily std\+::string Studentas\+::get\+\_\+vardas (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classZmogus}{Zmogus}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/lukas/prog/op\+\_\+uzduotis\+\_\+2/headers/studentas.\+h\item 
+/home/lukas/prog/op\+\_\+uzduotis\+\_\+2/src/stud\+\_\+rikiavimas.\+cpp\item 
+/home/lukas/prog/op\+\_\+uzduotis\+\_\+2/src/studentas\+\_\+io.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,65 @@
+\hypertarget{studentas_8h_source}{}\doxysection{studentas.\+h}
+\label{studentas_8h_source}\index{/home/lukas/prog/op\_uzduotis\_2/headers/studentas.h@{/home/lukas/prog/op\_uzduotis\_2/headers/studentas.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef STUDENTAS\_H}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define STUDENTAS\_H}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}zmogus.h"{}}}
+\DoxyCodeLine{5 }
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{8 }
+\DoxyCodeLine{9 \textcolor{keyword}{class }\mbox{\hyperlink{classStudentas}{Studentas}} : \textcolor{keyword}{public} \mbox{\hyperlink{classZmogus}{Zmogus}} \{}
+\DoxyCodeLine{10     \textcolor{keyword}{private}:}
+\DoxyCodeLine{11     \textcolor{keywordtype}{double} egz\_pazymys;}
+\DoxyCodeLine{12     std::vector<int> nd\_pazymiai;}
+\DoxyCodeLine{13         \textcolor{keywordtype}{float} galutinis;}
+\DoxyCodeLine{14 }
+\DoxyCodeLine{15     \textcolor{keyword}{public}:}
+\DoxyCodeLine{16         \textcolor{keywordtype}{int} n\_pazymiu;}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{18         \mbox{\hyperlink{classStudentas}{Studentas}} ();}
+\DoxyCodeLine{19         \mbox{\hyperlink{classStudentas}{Studentas}} (\textcolor{keywordtype}{int} n\_paz) : n\_pazymiu(n\_paz) \{\};}
+\DoxyCodeLine{20         \mbox{\hyperlink{classStudentas}{Studentas}} (std::stringstream\& buffer, \textcolor{keywordtype}{int} nd\_skaicius);}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{22         \mbox{\hyperlink{classStudentas}{\string~Studentas}}();}
+\DoxyCodeLine{23         \mbox{\hyperlink{classStudentas}{Studentas}}(\textcolor{keyword}{const} \mbox{\hyperlink{classStudentas}{Studentas}}\& s);}
+\DoxyCodeLine{24         \mbox{\hyperlink{classStudentas}{Studentas}}\& operator=(\textcolor{keyword}{const} \mbox{\hyperlink{classStudentas}{Studentas}}\& s);}
+\DoxyCodeLine{25 }
+\DoxyCodeLine{26         std::string get\_vardas() \{ \textcolor{keywordflow}{return} vardas; \};}
+\DoxyCodeLine{27         std::string get\_pavarde() \{ \textcolor{keywordflow}{return} pavarde; \}}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{29         \textcolor{keywordtype}{float} get\_galutinis() \{ \textcolor{keywordflow}{return} galutinis; \};}
+\DoxyCodeLine{30         \textcolor{keywordtype}{float} get\_egz() \{ \textcolor{keywordflow}{return} egz\_pazymys; \};}
+\DoxyCodeLine{31 }
+\DoxyCodeLine{32         std::vector<int> get\_nd\_pazymiai() \{ \textcolor{keywordflow}{return} nd\_pazymiai; \};}
+\DoxyCodeLine{33 }
+\DoxyCodeLine{34         \textcolor{keywordtype}{void} set\_galutinis(\textcolor{keywordtype}{float} galutinis) \{ this-\/>galutinis = galutinis; \};}
+\DoxyCodeLine{35 }
+\DoxyCodeLine{36         \textcolor{keyword}{static} \textcolor{keywordtype}{bool} compareVardas(\textcolor{keyword}{const} \mbox{\hyperlink{classStudentas}{Studentas}}\&, \textcolor{keyword}{const} \mbox{\hyperlink{classStudentas}{Studentas}}\&);}
+\DoxyCodeLine{37         \textcolor{keyword}{static} \textcolor{keywordtype}{bool} comparePavarde(\textcolor{keyword}{const} \mbox{\hyperlink{classStudentas}{Studentas}}\&, \textcolor{keyword}{const} \mbox{\hyperlink{classStudentas}{Studentas}}\&);}
+\DoxyCodeLine{38         \textcolor{keyword}{static} \textcolor{keywordtype}{bool} compareEgza(\textcolor{keyword}{const} \mbox{\hyperlink{classStudentas}{Studentas}}\&, \textcolor{keyword}{const} \mbox{\hyperlink{classStudentas}{Studentas}}\&);}
+\DoxyCodeLine{39         }
+\DoxyCodeLine{40         \textcolor{keyword}{friend} std::stringstream\& operator<<(std::stringstream\& s, \textcolor{keyword}{const} \mbox{\hyperlink{classStudentas}{Studentas}}\& stud);}
+\DoxyCodeLine{41         \textcolor{keyword}{friend} std::stringstream\& operator>>(std::stringstream\& s, \mbox{\hyperlink{classStudentas}{Studentas}}\& stud);}
+\DoxyCodeLine{42 \};}
+\DoxyCodeLine{43 }
+\DoxyCodeLine{44 \textcolor{keywordtype}{void} isvesti\_studenta (\mbox{\hyperlink{classStudentas}{Studentas}} s, std::stringstream\& buffer);}
+\DoxyCodeLine{45 }
+\DoxyCodeLine{46 \textcolor{keyword}{template} <\textcolor{keyword}{typename} container>}
+\DoxyCodeLine{47 \textcolor{keywordtype}{void} nuskaityti\_faila(\textcolor{keyword}{const} container \&stud, std::string failas);}
+\DoxyCodeLine{48 }
+\DoxyCodeLine{49 \textcolor{keyword}{template} <\textcolor{keyword}{typename} container>}
+\DoxyCodeLine{50 \textcolor{keywordtype}{void} irasyti\_studentus(container \&sarasas);}
+\DoxyCodeLine{51 \textcolor{keywordtype}{void} spausdinti\_stud\_duom(\mbox{\hyperlink{classStudentas}{Studentas}} stud);}
+\DoxyCodeLine{52 }
+\DoxyCodeLine{53 \textcolor{keyword}{template} <\textcolor{keyword}{typename} container>}
+\DoxyCodeLine{54 \textcolor{keywordtype}{void} spausdinti\_rezultatus(container \&stud);}
+\DoxyCodeLine{55 }
+\DoxyCodeLine{56 \textcolor{keyword}{template} <\textcolor{keyword}{typename} container>}
+\DoxyCodeLine{57 \textcolor{keywordtype}{void} isvesti\_faila(\textcolor{keyword}{const} container \&stud, std::string file\_path);}
+\DoxyCodeLine{58 }
+\DoxyCodeLine{59 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}
