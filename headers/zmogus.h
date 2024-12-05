@@ -4,20 +4,25 @@
 #include <string>
 #include <iostream>
 
+/// @brief  Abstrakti klasė, skirta galimam praplėtimui ateityje
 class Zmogus {
 	protected:
   	std::string vardas;
   	std::string pavarde;
 
 	public:
-		virtual std::string get_vardas() = 0;
-		virtual std::string get_pavarde() = 0;
+		/// Vardo getter'is
+		virtual std::string get_vardas() = 0; 
+		/// Pavardės getter'is
+		virtual std::string get_pavarde() = 0; 
 
 		Zmogus() { std::cout << "Zmogus sukurtas"; };
 		virtual ~Zmogus() { std::cout << "Zmogus istrintas"; };
 
-		void set_vardas(std::string vardas) { this->vardas = vardas; };
-		void set_pavarde(std::string pavarde) { this->pavarde = pavarde; };
+		/// Virtualus vardo setter'is
+		void set_vardas(std::string vardas) { this->vardas = vardas; }; 		
+		/// Virtualus pavardės setter'is
+		void set_pavarde(std::string pavarde) { this->pavarde = pavarde; }; 
 };
 
 #endif

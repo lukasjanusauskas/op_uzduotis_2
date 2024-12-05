@@ -74,18 +74,21 @@ $(function() {
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;chrono&gt;</span></div>
 <div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno"><a class="line" href="classTimer.html">    6</a></span><span class="keyword">class </span><a class="code hl_class" href="classTimer.html">Timer</a>{</div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span>    std::chrono::time_point&lt;std::chrono::system_clock&gt; start, end;</div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span>    std::chrono::duration&lt;double&gt; elapsed;</div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>    <span class="keywordtype">void</span> start_timer();</div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>    <span class="keywordtype">double</span> get_time();</div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    <span class="keywordtype">void</span> restart_timer();</div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>};</div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#endif</span></div>
-<div class="ttc" id="aclassTimer_html"><div class="ttname"><a href="classTimer.html">Timer</a></div><div class="ttdef"><b>Definition:</b> timer.h:6</div></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno"><a class="line" href="classTimer.html">    7</a></span><span class="keyword">class </span><a class="code hl_class" href="classTimer.html">Timer</a>{</div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span>    std::chrono::time_point&lt;std::chrono::system_clock&gt; start, end;</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>    std::chrono::duration&lt;double&gt; elapsed;</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classTimer.html#a83d4b873e3275a61004b5679672045c0">start_timer</a>();</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    <span class="keywordtype">double</span> <a class="code hl_function" href="classTimer.html#a71f709ed25564085ca99a184b3b09df8">get_time</a>();</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classTimer.html#a7f86afd72862e8242cb73f0b4fe01ae6">restart_timer</a>();</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>};</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="preprocessor">#endif</span></div>
+<div class="ttc" id="aclassTimer_html"><div class="ttname"><a href="classTimer.html">Timer</a></div><div class="ttdoc">Laiko skaičiavimui skirta klasė</div><div class="ttdef"><b>Definition:</b> timer.h:7</div></div>
+<div class="ttc" id="aclassTimer_html_a71f709ed25564085ca99a184b3b09df8"><div class="ttname"><a href="classTimer.html#a71f709ed25564085ca99a184b3b09df8">Timer::get_time</a></div><div class="ttdeci">double get_time()</div><div class="ttdoc">Apskaičiuojame laiką(veikia tik, jei jau buvome paleidę)</div><div class="ttdef"><b>Definition:</b> timer.cpp:11</div></div>
+<div class="ttc" id="aclassTimer_html_a7f86afd72862e8242cb73f0b4fe01ae6"><div class="ttname"><a href="classTimer.html#a7f86afd72862e8242cb73f0b4fe01ae6">Timer::restart_timer</a></div><div class="ttdeci">void restart_timer()</div><div class="ttdoc">Per naujo paleisti laiko skaičiuoklį</div><div class="ttdef"><b>Definition:</b> timer.cpp:17</div></div>
+<div class="ttc" id="aclassTimer_html_a83d4b873e3275a61004b5679672045c0"><div class="ttname"><a href="classTimer.html#a83d4b873e3275a61004b5679672045c0">Timer::start_timer</a></div><div class="ttdeci">void start_timer()</div><div class="ttdoc">Pradedame laiko skaičiavimą, apskaičiuodami.</div><div class="ttdef"><b>Definition:</b> timer.cpp:7</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
