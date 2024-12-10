@@ -38,6 +38,7 @@ class Studentas : public Zmogus {
 		float get_egz() { return egz_pazymys; };
 
 		std::vector<int> get_nd_pazymiai() { return nd_pazymiai; };
+		void set_nd_pazymiai(std::vector<int> paz) { this->nd_pazymiai = paz; };
 
 		void set_galutinis(float galutinis) { this->galutinis = galutinis; };
 
