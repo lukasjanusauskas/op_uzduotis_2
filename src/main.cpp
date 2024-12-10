@@ -1,6 +1,9 @@
+#define DOCTEST_CONFIG_IMPLEMENT 
+
 #include "studentas.h"
 #include "skaiciavimai.h"
 #include "util.h"
+#include "doctest.h"
 
 #include "stud_random.cpp"
 #include "studentas_io.cpp"
@@ -20,13 +23,15 @@ std::string pasirinkti_faila();
 template <typename container>
 void konsoles_dialogas(container& stud);
 
-void testuoti_eiga();
 void testuoti_generavima();
 void test_pasirinkti();
 void demonstracija();
 
-int main() {
+int main(int argc, char** argv) {
 	// generuoti_penkis();
+
+	doctest::Context context(argc, argv);
+	int test_result = context.run();
 
 	std::vector<Studentas> stud;
 	konsoles_dialogas(stud);
@@ -181,4 +186,9 @@ void test_pasirinkti(){
 		std::string path = pasirinkti_faila();
 		std::cout << path;
 	}
+}
+
+TEST_CASE("Test for testing") {
+	CHECK(20 * 3 == 60);
+	CHECK(20 * 4 == 80);
 }

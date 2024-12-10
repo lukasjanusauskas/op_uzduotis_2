@@ -16,8 +16,8 @@ class Zmogus {
 		/// Pavardės getter'is
 		virtual std::string get_pavarde() = 0; 
 
-		Zmogus() { std::cout << "Zmogus sukurtas"; };
-		virtual ~Zmogus() { std::cout << "Zmogus istrintas"; };
+		Zmogus() {};
+		virtual ~Zmogus() {};
 
 		/// Virtualus vardo setter'is
 		void set_vardas(std::string vardas) { this->vardas = vardas; }; 		
