@@ -7,12 +7,16 @@ Instaliavus su `git clone` pradinio kompiliavimo veiksmai:
 ```
 mkdir build
 ./run.sh
-./build/main
 ```
 
 Vėliau leidžiant programą, pirmosios eilutės nebereikės.
 
-> Jei nenorite paleisti, bet tik sukompiliuoti: paskutinės komandos nereikia
+CLI pasirinkimai (flagai po `./run.sh`):
+| Flag'as | Pasirinkimas |
+| ------- | ------------ |
+| -t | Paleisti testus pradžioje |
+| -r | Paleisti be testų |
+| (nėra flag'ų) | Kompiliuoti |
 
 ## v1.1
 
@@ -42,4 +46,6 @@ Failo dydžiai:
 ## v2.0
 
 - Sugeneruota dokumentacija su doxygen.
-- Parašyti unittestai.
+- Parašyti unittestai su `doctest`
+  1. Testuojamas galutinio pažymio skaičiavimas.
+  2. Testuojamas kategorizavimas.
