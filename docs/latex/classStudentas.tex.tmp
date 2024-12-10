@@ -2,7 +2,7 @@
 \label{classStudentas}\index{Studentas@{Studentas}}
 
 
-Pagrindinė šios programos klasė, studentų klasė  
+Pagrindinė šios programos klasė, studentų klasė.  
 
 
 
@@ -43,6 +43,9 @@ float {\bfseries get\+\_\+egz} ()
 \mbox{\Hypertarget{classStudentas_a36d032d2286c6e45197a7c84d12fd36f}\label{classStudentas_a36d032d2286c6e45197a7c84d12fd36f}} 
 std\+::vector$<$ int $>$ {\bfseries get\+\_\+nd\+\_\+pazymiai} ()
 \item 
+\mbox{\Hypertarget{classStudentas_ae0e887b009361077c8b950b96744e331}\label{classStudentas_ae0e887b009361077c8b950b96744e331}} 
+void {\bfseries set\+\_\+nd\+\_\+pazymiai} (std\+::vector$<$ int $>$ paz)
+\item 
 \mbox{\Hypertarget{classStudentas_a00f0e954a0e276602b7c847cc9933ac8}\label{classStudentas_a00f0e954a0e276602b7c847cc9933ac8}} 
 void {\bfseries set\+\_\+galutinis} (float galutinis)
 \end{DoxyCompactItemize}
@@ -81,7 +84,7 @@ std\+::stringstream \& \mbox{\hyperlink{classStudentas_a0f9c838edc4de87c11254432
 
 
 \doxysubsection{Detailed Description}
-Pagrindinė šios programos klasė, studentų klasė 
+Pagrindinė šios programos klasė, studentų klasė. 
 
 \doxysubsection{Constructor \& Destructor Documentation}
 \mbox{\Hypertarget{classStudentas_a0259358b294703ff5ef17e603c8c33af}\label{classStudentas_a0259358b294703ff5ef17e603c8c33af}} 

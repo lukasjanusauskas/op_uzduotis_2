@@ -36,27 +36,28 @@
 \DoxyCodeLine{38         \textcolor{keywordtype}{float} get\_egz() \{ \textcolor{keywordflow}{return} egz\_pazymys; \};}
 \DoxyCodeLine{39 }
 \DoxyCodeLine{40         std::vector<int> get\_nd\_pazymiai() \{ \textcolor{keywordflow}{return} nd\_pazymiai; \};}
-\DoxyCodeLine{41 }
-\DoxyCodeLine{42         \textcolor{keywordtype}{void} set\_galutinis(\textcolor{keywordtype}{float} galutinis) \{ this-\/>galutinis = galutinis; \};}
-\DoxyCodeLine{43 }
-\DoxyCodeLine{44         \textcolor{keyword}{static} \textcolor{keywordtype}{bool} compareVardas(\textcolor{keyword}{const} \mbox{\hyperlink{classStudentas}{Studentas}}\&, \textcolor{keyword}{const} \mbox{\hyperlink{classStudentas}{Studentas}}\&);}
-\DoxyCodeLine{45         \textcolor{keyword}{static} \textcolor{keywordtype}{bool} comparePavarde(\textcolor{keyword}{const} \mbox{\hyperlink{classStudentas}{Studentas}}\&, \textcolor{keyword}{const} \mbox{\hyperlink{classStudentas}{Studentas}}\&);}
-\DoxyCodeLine{46         \textcolor{keyword}{static} \textcolor{keywordtype}{bool} compareEgza(\textcolor{keyword}{const} \mbox{\hyperlink{classStudentas}{Studentas}}\&, \textcolor{keyword}{const} \mbox{\hyperlink{classStudentas}{Studentas}}\&);}
-\DoxyCodeLine{47         }
-\DoxyCodeLine{52         \textcolor{keyword}{friend} std::stringstream\& \mbox{\hyperlink{classStudentas_adc4e0e66499216c3bfb1667ecfbb342f}{operator<<}}(std::stringstream\& s, \textcolor{keyword}{const} \mbox{\hyperlink{classStudentas}{Studentas}}\& stud);}
-\DoxyCodeLine{53 }
-\DoxyCodeLine{58         \textcolor{keyword}{friend} std::stringstream\& \mbox{\hyperlink{classStudentas_a0f9c838edc4de87c11254432fc799ad8}{operator>>}}(std::stringstream\& s, \mbox{\hyperlink{classStudentas}{Studentas}}\& stud);}
-\DoxyCodeLine{59 }
-\DoxyCodeLine{64     \textcolor{keyword}{template} <\textcolor{keyword}{typename} container>}
-\DoxyCodeLine{65     \textcolor{keyword}{friend} \textcolor{keywordtype}{void} \mbox{\hyperlink{classStudentas_aeba27a31a51349023fb46c0b03772a3c}{nuskaityti\_faila}}(\textcolor{keyword}{const} container \&stud, std::string failas);}
-\DoxyCodeLine{66 }
-\DoxyCodeLine{70     \textcolor{keyword}{template} <\textcolor{keyword}{typename} container>}
-\DoxyCodeLine{71     \textcolor{keyword}{friend} \textcolor{keywordtype}{void} \mbox{\hyperlink{classStudentas_ae28a8e94f4150870f02967e7b347168c}{irasyti\_studentus}}(container \&sarasas);}
-\DoxyCodeLine{72 }
-\DoxyCodeLine{77     \textcolor{keyword}{template} <\textcolor{keyword}{typename} container>}
-\DoxyCodeLine{78     \textcolor{keyword}{friend} \textcolor{keywordtype}{void} \mbox{\hyperlink{classStudentas_a2c0897366ed8f29490a7b4eee60c99c2}{isvesti\_faila}}(\textcolor{keyword}{const} container \&stud, std::string file\_path);}
-\DoxyCodeLine{79 \};}
-\DoxyCodeLine{80 }
-\DoxyCodeLine{81 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{41         \textcolor{keywordtype}{void} set\_nd\_pazymiai(std::vector<int> paz) \{ this-\/>nd\_pazymiai = paz; \};}
+\DoxyCodeLine{42 }
+\DoxyCodeLine{43         \textcolor{keywordtype}{void} set\_galutinis(\textcolor{keywordtype}{float} galutinis) \{ this-\/>galutinis = galutinis; \};}
+\DoxyCodeLine{44 }
+\DoxyCodeLine{45         \textcolor{keyword}{static} \textcolor{keywordtype}{bool} compareVardas(\textcolor{keyword}{const} \mbox{\hyperlink{classStudentas}{Studentas}}\&, \textcolor{keyword}{const} \mbox{\hyperlink{classStudentas}{Studentas}}\&);}
+\DoxyCodeLine{46         \textcolor{keyword}{static} \textcolor{keywordtype}{bool} comparePavarde(\textcolor{keyword}{const} \mbox{\hyperlink{classStudentas}{Studentas}}\&, \textcolor{keyword}{const} \mbox{\hyperlink{classStudentas}{Studentas}}\&);}
+\DoxyCodeLine{47         \textcolor{keyword}{static} \textcolor{keywordtype}{bool} compareEgza(\textcolor{keyword}{const} \mbox{\hyperlink{classStudentas}{Studentas}}\&, \textcolor{keyword}{const} \mbox{\hyperlink{classStudentas}{Studentas}}\&);}
+\DoxyCodeLine{48         }
+\DoxyCodeLine{53         \textcolor{keyword}{friend} std::stringstream\& \mbox{\hyperlink{classStudentas_adc4e0e66499216c3bfb1667ecfbb342f}{operator<<}}(std::stringstream\& s, \textcolor{keyword}{const} \mbox{\hyperlink{classStudentas}{Studentas}}\& stud);}
+\DoxyCodeLine{54 }
+\DoxyCodeLine{59         \textcolor{keyword}{friend} std::stringstream\& \mbox{\hyperlink{classStudentas_a0f9c838edc4de87c11254432fc799ad8}{operator>>}}(std::stringstream\& s, \mbox{\hyperlink{classStudentas}{Studentas}}\& stud);}
+\DoxyCodeLine{60 }
+\DoxyCodeLine{65     \textcolor{keyword}{template} <\textcolor{keyword}{typename} container>}
+\DoxyCodeLine{66     \textcolor{keyword}{friend} \textcolor{keywordtype}{void} \mbox{\hyperlink{classStudentas_aeba27a31a51349023fb46c0b03772a3c}{nuskaityti\_faila}}(\textcolor{keyword}{const} container \&stud, std::string failas);}
+\DoxyCodeLine{67 }
+\DoxyCodeLine{71     \textcolor{keyword}{template} <\textcolor{keyword}{typename} container>}
+\DoxyCodeLine{72     \textcolor{keyword}{friend} \textcolor{keywordtype}{void} \mbox{\hyperlink{classStudentas_ae28a8e94f4150870f02967e7b347168c}{irasyti\_studentus}}(container \&sarasas);}
+\DoxyCodeLine{73 }
+\DoxyCodeLine{78     \textcolor{keyword}{template} <\textcolor{keyword}{typename} container>}
+\DoxyCodeLine{79     \textcolor{keyword}{friend} \textcolor{keywordtype}{void} \mbox{\hyperlink{classStudentas_a2c0897366ed8f29490a7b4eee60c99c2}{isvesti\_faila}}(\textcolor{keyword}{const} container \&stud, std::string file\_path);}
+\DoxyCodeLine{80 \};}
+\DoxyCodeLine{81 }
+\DoxyCodeLine{82 \textcolor{preprocessor}{\#endif}}
 
 \end{DoxyCode}
