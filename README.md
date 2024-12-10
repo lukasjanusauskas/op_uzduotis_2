@@ -20,7 +20,7 @@ CLI pasirinkimai (flagai po `./run.sh`):
 
 
 ## v0.1
----
+
 ### Studentų duomenų bazė:
 - Duomenys saugomi struktūroje `Studentas`
 - Galutinis pažymys skaičiuojamas pagal formulę: *0.4 * namų darbų pažymys + 0.6 * egzamino pažymys*.
@@ -28,11 +28,11 @@ CLI pasirinkimai (flagai po `./run.sh`):
 - Išvedus studentai yra išrikiuoti.
 
 ## v0.2
----
+
 - Pridėtas skirstymas į dvi kategorijas: vargšai ir galvos.
 - Atlikti matavimai.
 
-#### Rezultatai su `std::vector`
+#### Rezultatai su std::vector
 
 ![Turėjo būti screenshot](screenshots/vector.png "Matavimai")
 
@@ -40,22 +40,22 @@ CLI pasirinkimai (flagai po `./run.sh`):
 
 
 ## v0.3
----
+
 - Realizuotos funkcijos su šablonais ir išmatuoti `std::list` greičiai.
 
-#### Rezultatai su `std::list`
+#### Rezultatai su std::list
 
 ![Turėjo būti screenshot](screenshots/list.png "Matavimai")
 
-> Kompiuteris: intecl Core i7-4800MQ (max freq. 3.7 GHz), 16 Gb ram
+> Kompiuteris: intel Core i7-4800MQ (max freq. 3.7 GHz), 16 Gb ram
 
 ## v1.0
----
+
 - Realizuotos skirstymo strategijos.
 
 ![Turėjo būti screenshot](screenshots/rusiavimas.png "Matavimai")
 
-#### Išvada: 2 strategija su `std::vector` nes jos greitis, asimptotiškai yra $O(n)$. Tuo tarpu, greičiausiai veikia 3 strategija, nes naudotos optimzuotos funkcijos iš STL.
+#### Išvada: 2 strategija su std::vector nes jos greitis, asimptotiškai yra $O(n^2)$. Tuo tarpu, greičiausiai veikia 3 strategija, nes naudotos optimzuotos funkcijos iš STL.
 
 
 ## v1.1
