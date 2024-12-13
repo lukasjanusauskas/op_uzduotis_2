@@ -30,8 +30,8 @@ void demonstracija();
 int main(int argc, char** argv) {
 	// generuoti_penkis();
 
-	doctest::Context context(argc, argv);
-	int test_result = context.run();
+	// doctest::Context context(argc, argv);
+	// int test_result = context.run();
 
 	std::vector<Studentas> stud;
 	konsoles_dialogas(stud);
