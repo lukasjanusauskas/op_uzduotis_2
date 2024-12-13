@@ -2,22 +2,21 @@
 #include <fstream>
 #include <regex>
 #include <iomanip>
+#include <ios>
 #include <list>
 
 #include "studentas.h"
 #include "skaiciavimai.cpp"
 #include "timer.h"
 
-Studentas irasyti_studenta() {
+Studentas::Studentas() {
 	// Vieno studento irasymas
-	Studentas stud;
-
 	std::cout << "Įrašyti varda ir pavarde(ivedus vardą paspausti Enter):\n";
-	std::cin >> stud.vardas >> stud.pavarde;
+	std::cin >> vardas >> pavarde;
 
 	std::string ivestis;
 	int paz;
-
+	
 	std::cout << "Įvesti pažymius(norėdami užbaigti, įveskite 0):\n";
 	while (true) {
 		std::cin >> ivestis;
@@ -34,7 +33,7 @@ Studentas irasyti_studenta() {
 		if (paz == 0) // Irasoma, kol nepaspaudzia 0
 			break;
 
-		stud.nd_pazymiai.push_back(paz);
+		nd_pazymiai.push_back(paz);
 	}
 
 	std::cout << "Įveskite egzamino pažymį:\n";
@@ -44,15 +43,68 @@ ivesti:;
 
 	try
 	{
-		stud.egz_pazymys = std::stoi(ivestis);
+		egz_pazymys = std::stoi(ivestis);
 	}
 	catch (const std::exception&)
 	{
 		std::cout << "Prasau, iveskite normalu skaiciu, jei norite baigti, iveskite 0\n";
 		goto ivesti;
 	}
+}
 
-	return stud;
+std::stringstream& operator<<(std::stringstream& s, const Studentas& stud){
+		s << std::setw(20) << stud.vardas
+			<< std::setw(25) << stud.pavarde;
+		s << std::left
+			<< std::setw(17) << stud.galutinis << "\n";
+
+		return s;
+}
+
+Studentas::Studentas (std::stringstream& buffer, int nd_skaicius){
+	int tmp_paz;
+
+	buffer >> vardas >> pavarde;
+
+	for (int i = 0; i < nd_skaicius; i++) {
+		buffer >> tmp_paz;
+		nd_pazymiai.push_back(tmp_paz);
+	}
+	buffer >> egz_pazymys;
+
+	galutinis = calc_galutini(vidurkis(nd_pazymiai), egz_pazymys);
+}
+
+std::stringstream& operator>>(std::stringstream& s, Studentas& stud){
+	Studentas* new_stud = new Studentas(s, stud.n_pazymiu);
+	stud = *new_stud;
+	return s;
+}
+
+Studentas::~Studentas() {
+	nd_pazymiai.clear();
+}
+		
+Studentas::Studentas(const Studentas& s){
+	vardas = s.vardas;
+	pavarde = s.pavarde;
+
+	egz_pazymys = s.egz_pazymys;
+	galutinis = s.galutinis;
+
+	copy(s.nd_pazymiai.begin(), s.nd_pazymiai.end(), std::back_inserter(nd_pazymiai));
+}
+
+Studentas& Studentas::operator=(const Studentas& s){
+	this->vardas = s.vardas;
+	this->pavarde = s.pavarde;
+
+	this->egz_pazymys = s.egz_pazymys;
+	this->galutinis = s.galutinis;
+
+	copy(s.nd_pazymiai.begin(), s.nd_pazymiai.end(), std::back_inserter(this->nd_pazymiai));
+
+	return *this;
 }
 
 template <typename container>
@@ -68,7 +120,10 @@ void irasyti_studentus(container &sarasas) {
 		{
 		// Jei nuspaudzia 't', ivyksta irsaymas
 		case 't':
-			sarasas.push_back(irasyti_studenta());
+		{
+			Studentas* st = new Studentas();
+			sarasas.push_back(*st);
+		}
 			break;
 		// Jei nuspaudzia 'n', grazinama, nevyksta irasymas
 		case 'n':
@@ -98,9 +153,6 @@ void nuskaityti_faila(container &stud, std::string failas) {
 	int nd_skaicius = 0;
 
 	// Nuskaitomas namu darbu kiekis su regex
-	// Daroma prielaida, kad namu darbu stulpeliai zymimi ND(skaicius)
-
-	// Sudarome regex expression ir jį paleidžiame per header_str.
 	const std::regex reg_expr("ND\\d+");
 
 	auto iterator = std::sregex_iterator(header_str.begin(), header_str.end(), reg_expr);
@@ -117,17 +169,10 @@ void nuskaityti_faila(container &stud, std::string failas) {
 	int tmp_paz;
 	std::string line_buf;
 	while (!buffer.eof()) {
-		Studentas s;
-		buffer >> s.vardas >> s.pavarde;
+		Studentas *s = new Studentas(nd_skaicius);
+		buffer >> *s;
 
-		for (int i = 0; i < nd_skaicius; i++) {
-			buffer >> tmp_paz;
-			s.nd_pazymiai.push_back(tmp_paz);
-		}
-		buffer >> s.egz_pazymys;
-
-		s.galutinis = galutinis(vidurkis(s.nd_pazymiai), s.egz_pazymys);
-		stud.push_back(s);
+		stud.push_back(*s);
 	}
 }
 
@@ -145,15 +190,7 @@ void isvesti_faila(const container &stud, std::string file_path) {
 
 	t.start_timer();
 	for (auto& s : stud){
-		
-		float vid = vidurkis(s.nd_pazymiai);
-		float med = mediana(s.nd_pazymiai);
-
-	// Spausdinama, nustatant plocio minimuma(kuris retai virsijamas, tai beveik visada toks ir yra)
-		buffer << std::setw(20) << s.vardas
-			   << std::setw(25) << s.pavarde;
-		buffer << std::left
-			   << std::setw(17) << s.galutinis << "\n";
+		buffer << s;
 	}
 
 	std::ofstream fr(file_path);

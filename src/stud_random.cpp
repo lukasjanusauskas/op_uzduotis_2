@@ -16,11 +16,12 @@ void generuoti_atsitiktinius(std::string file, unsigned int n) {
 	auto time_now = std::chrono::high_resolution_clock::now();
 	std::random_device rd;
 	std::mt19937 mt(rd());
-	std::uniform_int_distribution<> unif(0, 9);
+	std::uniform_int_distribution<int> unif(0, 9);
 
-	Studentas s;
 	int paz_skaicius = unif(mt) + 3;
-	s.nd_pazymiai.reserve(paz_skaicius);
+
+	std::vector<int>* nd_pazymiai = new std::vector<int>();
+	nd_pazymiai->reserve(paz_skaicius);
 
 	std::stringstream output;
 	output << std::left << std::setw(20) << "Vardas"
@@ -31,24 +32,19 @@ void generuoti_atsitiktinius(std::string file, unsigned int n) {
 	output << "Egz.\n";
 
 	for (int i = 0; i < n; i++){
-		s.vardas = "Vardas" + std::to_string(i);
-		s.pavarde = "Pavarde" + std::to_string(i);
-
-		s.nd_pazymiai.clear();
-		s.nd_pazymiai.reserve(paz_skaicius);
+		nd_pazymiai->clear();
+		nd_pazymiai->reserve(paz_skaicius);
 
 		for (int i = paz_skaicius; i > 0; i--)
-			s.nd_pazymiai.push_back(unif(mt) + 1);
+			nd_pazymiai->push_back(unif(mt) + 1);
 
-		s.egz_pazymys = unif(mt) + 1;
+		output << std::setw(20) << "Vardas" + std::to_string(i)
+		   << std::setw(20) << "Pavarde" + std::to_string(i);
 
-		output << std::setw(20) << s.vardas 
-		   << std::setw(20) << s.pavarde;
-
-		for(auto& p: s.nd_pazymiai)
+		for(auto& p: *nd_pazymiai)
 			output << std::setw(6) << p;
 
-		output << s.egz_pazymys << "\n";
+		output << unif(mt) + 1 << "\n";
 	}
 
 	std::ofstream fr(file);
