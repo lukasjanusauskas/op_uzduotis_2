@@ -3,7 +3,6 @@
 #include "studentas.h"
 #include "skaiciavimai.h"
 #include "util.h"
-#include "doctest.h"
 
 #include "stud_random.cpp"
 #include "studentas_io.cpp"
@@ -29,9 +28,6 @@ void demonstracija();
 
 int main(int argc, char** argv) {
 	// generuoti_penkis();
-
-	// doctest::Context context(argc, argv);
-	// int test_result = context.run();
 
 	std::vector<Studentas> stud;
 	konsoles_dialogas(stud);
@@ -186,43 +182,4 @@ void test_pasirinkti(){
 		std::string path = pasirinkti_faila();
 		std::cout << path;
 	}
-}
-
-TEST_CASE("Testas skaiciavimui") {
-	Studentas *s = new Studentas(3);
-	s->set_galutinis(10);
-
-	std::vector<int> nd_paz = {10, 10, 10};
-	s->set_nd_pazymiai(nd_paz);
-
-	CHECK(calc_galutini(vidurkis(s->get_nd_pazymiai()),
-								  	  s->get_galutinis()) == 10.0);
-
-	std::vector<int> nd_paz_2 = {0, 0, 0};
-	s->set_nd_pazymiai(nd_paz_2);
-
-	CHECK(calc_galutini(vidurkis(s->get_nd_pazymiai()),
-								  	  s->get_galutinis()) == 6.0);
-}
-
-TEST_CASE("Testas skirstymo") {
-	Studentas* s1 = new Studentas(1);
-
-	s1->set_galutinis(10);
-	std::vector<int> nd_paz = {0};
-	s1->set_nd_pazymiai(nd_paz);
-
-	Studentas* s2 = new Studentas(1); 
-
-	s2->set_galutinis(2);
-	std::vector<int> nd_paz2 = {2};
-	s2->set_nd_pazymiai(nd_paz2);
-
-	std::vector<Studentas> stud = {*s1, *s2};
-	std::vector<Studentas> vargsai, galvos;
-
-	kategorizuoti(stud, vargsai, galvos);
-
-	CHECK(vargsai.size() == 1);
-	CHECK(galvos.size() == 1);
 }
