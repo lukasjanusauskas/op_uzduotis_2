@@ -10,7 +10,10 @@ target_include_directories(
         headers/
 )
 
+install(TARGETS ${PROJECT_NAME} RUNTIME DESTINATION "bin")
+
 include(GNUInstallDirs)
+
 set(CPACK_GENERATOR "DEB")
 set(CPACK_DEBIAN_PACKAGE_NAME "studentai")
 set(CPACK_DEBIAN_FILE_NAME DEB-DEFAULT)
