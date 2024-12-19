@@ -3,9 +3,9 @@ set(CMAKE_CXX_STANDARD_REQUIRED 11)
 
 project(studentai VERSION 2.0)
 
-add_executable(main "src/main.cpp")
+add_executable(studentai "src/studentai.cpp")
 target_include_directories(
-    main
+    studentai 
     PRIVATE
         headers/
 )
